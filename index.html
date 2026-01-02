@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Basic Finances | Smarter Financial Decisions</title>
+  <meta charset="UTF-8">
+  <title>Basic Finances | Simple Guidance for Smarter Decisions</title>
 
-  <meta name="description" content="Basic Finances helps you make smarter financial decisions with simple guidance on mutual funds, SIPs, and investments." />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Basic Finances is a financial education platform helping you understand investments, SIPs, and long-term wealth creation with clarity." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.png" />
+  <link rel="icon" href="favicon.png">
 
   <style>
     /* ================= RESET ================= */
@@ -27,53 +26,54 @@
 
     a {
       text-decoration: none;
+      color: inherit;
     }
 
-    /* ================= NAVBAR ================= */
-    .navbar {
+    /* ================= HEADER / NAVBAR ================= */
+    header {
       position: sticky;
       top: 0;
-      background: #0b2a4a;
+      z-index: 1000;
+      background: #0b2e4f;
       padding: 14px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 1000;
     }
 
-    .logo a {
+    .brand {
       display: flex;
       align-items: center;
       gap: 10px;
-      color: white;
       font-weight: 700;
       font-size: 18px;
+      color: #ffffff;
     }
 
-    .logo img {
+    .brand img {
       height: 38px;
     }
 
-    .nav-links {
+    nav ul {
       list-style: none;
       display: flex;
       gap: 24px;
     }
 
-    .nav-links a {
-      color: white;
+    nav a {
+      color: #ffffff;
       font-weight: 500;
     }
 
-    .nav-links a:hover {
+    nav a:hover {
       text-decoration: underline;
     }
 
     /* ================= HERO ================= */
     .hero {
       background: linear-gradient(135deg, #1e3a8a, #1e40af);
-      color: white;
-      padding: 110px 20px;
+      color: #ffffff;
+      padding: 120px 20px;
       text-align: center;
     }
 
@@ -84,8 +84,8 @@
 
     .hero p {
       font-size: 18px;
-      max-width: 700px;
-      margin: 0 auto 32px;
+      max-width: 760px;
+      margin: 0 auto 36px;
       opacity: 0.95;
     }
 
@@ -100,46 +100,102 @@
       padding: 14px 28px;
       border-radius: 8px;
       font-weight: 600;
+      display: inline-block;
     }
 
     .btn-primary {
-      background: white;
+      background: #ffffff;
       color: #1e3a8a;
     }
 
     .btn-secondary {
-      border: 2px solid white;
-      color: white;
+      border: 2px solid #ffffff;
+      color: #ffffff;
     }
 
-    /* ================= SERVICES ================= */
-    .services {
-      max-width: 1000px;
-      margin: 60px auto;
+    /* ================= SECTIONS ================= */
+    section {
+      max-width: 1100px;
+      margin: 70px auto;
       padding: 0 20px;
     }
 
-    .services h2 {
+    section h2 {
       text-align: center;
-      margin-bottom: 30px;
-      font-size: 30px;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    /* ================= SERVICES ================= */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
     }
 
     .service-card {
-      background: white;
-      padding: 24px;
-      margin-bottom: 20px;
+      background: #ffffff;
+      padding: 26px;
       border-radius: 10px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      color: #1e3a8a;
+    }
+
+    /* ================= ABOUT ================= */
+    .about {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about p {
+      margin-bottom: 18px;
+      font-size: 16px;
+    }
+
+    .about ul {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .about li {
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    /* ================= CTA ================= */
+    .cta {
+      background: #e0e7ff;
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 14px;
+    }
+
+    .cta h2 {
+      margin-bottom: 16px;
     }
 
     /* ================= FOOTER ================= */
     footer {
       background: #111827;
       color: #9ca3af;
+      padding: 40px 20px;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: auto;
       text-align: center;
-      padding: 20px;
       font-size: 14px;
+    }
+
+    .footer-content p {
+      margin-bottom: 12px;
     }
 
     /* ================= MOBILE ================= */
@@ -148,7 +204,7 @@
         font-size: 32px;
       }
 
-      .nav-links {
+      nav ul {
         gap: 14px;
       }
     }
@@ -157,56 +213,106 @@
 
 <body>
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="logo">
-      <a href="index.html">
-        <img src="images/logo.png" alt="Basic Finances Logo">
-        Basic Finances
-      </a>
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <img src="images/logo.png" alt="Basic Finances Logo">
+      Basic Finances
     </div>
 
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="blog/index.html">Blog</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Learn</a></li>
+        <li><a href="#">Calculators</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- HERO -->
   <section class="hero">
     <h1>Make Smarter Financial Decisions<br>With Confidence</h1>
     <p>
-      Simple, unbiased guidance on Mutual Funds, SIPs, investments,
-      and long-term wealth creation.
+      Simple, unbiased explanations on investments, SIPs, and long-term wealth creation
+      — designed to help you make informed financial choices.
     </p>
 
     <div class="hero-buttons">
-      <a href="blog/index.html" class="btn btn-primary">Read Our Blog</a>
-      <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+      <a href="#" class="btn btn-primary">Explore Learning</a>
+      <a href="#" class="btn btn-secondary">Get in Touch</a>
     </div>
   </section>
 
   <!-- SERVICES -->
-  <section class="services">
-    <h2>Our Services</h2>
+  <section>
+    <h2>What We Offer</h2>
 
-    <div class="service-card">
-      <h3>Mutual Funds</h3>
-      <p>Goal-based mutual fund planning with a long-term approach.</p>
-    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Investment Education</h3>
+        <p>Understand mutual funds, SIPs, and investment basics without confusing jargon.</p>
+      </div>
 
-    <div class="service-card">
-      <h3>Financial Planning</h3>
-      <p>Personalized financial strategies aligned to your life goals.</p>
+      <div class="service-card">
+        <h3>Goal-Based Planning</h3>
+        <p>Learn how to align investments with life goals like retirement and education.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Tools & Calculators</h3>
+        <p>Simple calculators to help estimate returns and plan better decisions.</p>
+      </div>
     </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <h2>About Basic Finances</h2>
+
+    <div class="about">
+      <p>
+        Basic Finances is an independent financial education platform created to help individuals
+        understand personal finance and investments with clarity and confidence.
+      </p>
+
+      <p>
+        We believe good financial decisions start with simple understanding — not complex products
+        or unrealistic promises.
+      </p>
+
+      <ul>
+        <li>✔ Education-first approach</li>
+        <li>✔ Long-term wealth mindset</li>
+        <li>✔ Simple explanations, no hype</li>
+        <li>✔ Unbiased and practical guidance</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Start Your Financial Journey With Clarity</h2>
+    <p>Explore learning resources designed to simplify your financial decisions.</p>
+    <br>
+    <a href="#" class="btn btn-primary">Start Learning</a>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    © 2026 Basic Finances. All rights reserved.  
-    <br>
-    Mutual fund investments are subject to market risks. Read all scheme related documents carefully.
+    <div class="footer-content">
+      <p><strong>Basic Finances</strong> — Simple guidance for smarter financial decisions.</p>
+
+      <p>
+        Mutual fund investments are subject to market risks.
+        Read all scheme related documents carefully.
+        <br>
+        This website is for educational purposes only and does not constitute financial advice.
+      </p>
+
+      <p>© 2026 Basic Finances. All rights reserved.</p>
+    </div>
   </footer>
 
 </body>
