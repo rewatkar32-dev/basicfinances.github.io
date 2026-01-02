@@ -7,9 +7,7 @@
   <meta name="description" content="Basic Finances helps individuals and families make smarter financial decisions through clear, goal-based investing and mutual fund guidance." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="bi6u5yfEV8bsN6X0lN-jWXTEWe7g9vhtE7riF8KZqDw" />
-
   <link rel="icon" href="favicon.png" />
 
   <style>
@@ -170,42 +168,12 @@
       align-items: center;
     }
 
-    .about-avatar {
-      text-align: center;
-    }
-
     .about-avatar img {
       width: 220px;
       height: 220px;
       border-radius: 50%;
       border: 4px solid #e5e7eb;
       object-fit: cover;
-    }
-
-    .about-content h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    .about-content h3 {
-      margin-top: 28px;
-      margin-bottom: 12px;
-      font-size: 22px;
-      color: #1e3a8a;
-    }
-
-    .about-content p {
-      margin-bottom: 16px;
-      color: #374151;
-    }
-
-    .about-points {
-      margin-left: 20px;
-      margin-top: 10px;
-    }
-
-    .about-points li {
-      margin-bottom: 10px;
     }
 
     /* ========== CTA ========== */
@@ -227,6 +195,47 @@
 
     footer p {
       margin-bottom: 12px;
+    }
+
+    /* ========== FLOATING SOCIAL BUTTONS ========== */
+    .social-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 2000;
+    }
+
+    .social-float a {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: bold;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease;
+    }
+
+    .social-float a:hover {
+      transform: scale(1.08);
+    }
+
+    .whatsapp {
+      background: #25D366;
+    }
+
+    .instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+
+    .facebook {
+      background: #1877F2;
     }
 
     /* ========== MOBILE ========== */
@@ -270,83 +279,12 @@
   </nav>
 </header>
 
-<section class="hero">
-  <h1>Make Smarter Financial Decisions<br>With Confidence</h1>
-  <p>
-    Simple, unbiased guidance on investments, SIPs, and long-term wealth creation —
-    designed to help you make informed financial choices.
-  </p>
-
-  <div class="hero-buttons">
-    <a href="#" class="btn btn-primary">Book a Free Consultation</a>
-    <a href="#" class="btn btn-secondary">Explore Learning</a>
-  </div>
-</section>
-
-<section>
-  <h2>What We Offer</h2>
-
-  <div class="services-grid">
-    <div class="service-card">
-      <h3>Mutual Fund & SIP Education</h3>
-      <p>Clear understanding of mutual funds and SIPs without confusing jargon.</p>
-    </div>
-
-    <div class="service-card">
-      <h3>Goal-Based Financial Planning</h3>
-      <p>Align investments with life goals like retirement, education, and wealth creation.</p>
-    </div>
-
-    <div class="service-card">
-      <h3>Financial Calculators & Tools</h3>
-      <p>Simple tools to estimate returns and plan better decisions.</p>
-    </div>
-  </div>
-</section>
-
-<section class="about">
-  <div class="about-container">
-
-    <div class="about-avatar">
-      <img src="images/avatar.png" alt="Pranay R. Rewatkar">
-    </div>
-
-    <div class="about-content">
-      <h2>About Us</h2>
-
-      <p>
-        Hello, I’m <strong>Pranay R. Rewatkar</strong> — a B.Com and M.Com graduate and an
-        <strong>AMFI Registered Mutual Fund Distributor</strong>.
-      </p>
-
-      <p>
-        I help individuals and families achieve financial milestones through structured planning,
-        disciplined investing, and unbiased guidance.
-      </p>
-
-      <p>
-        Over the last <strong>3 years</strong>, I have managed and advised the portfolios of
-        <strong>200+ families</strong> across different life stages.
-      </p>
-
-      <h3>Our Approach</h3>
-      <ul class="about-points">
-        <li>Client-first, goal-aligned recommendations</li>
-        <li>Clarity over complexity</li>
-        <li>Process-driven long-term investing</li>
-        <li>Transparent and trustworthy guidance</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<section class="cta">
-  <h2>Start Your Financial Journey With Clarity</h2>
-  <p>Let’s build your wealth with discipline and confidence.</p>
-  <br>
-  <a href="#" class="btn btn-primary">Get in Touch</a>
-</section>
+<!-- FLOATING SOCIAL BUTTONS -->
+<div class="social-float">
+  <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp" target="_blank" aria-label="WhatsApp">W</a>
+  <a href="https://www.instagram.com/YOUR_HANDLE" class="instagram" target="_blank" aria-label="Instagram">I</a>
+  <a href="https://www.facebook.com/YOUR_PAGE" class="facebook" target="_blank" aria-label="Facebook">F</a>
+</div>
 
 <footer>
   <p><strong>Pranay R. Rewatkar</strong> — AMFI Registered Mutual Fund Distributor</p>
