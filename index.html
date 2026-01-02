@@ -38,7 +38,8 @@
       top: 0;
       z-index: 1000;
       background: #0b2e4f;
-      padding: 14px 40px;
+      min-height: 120px;
+      padding: 16px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -46,15 +47,20 @@
 
     .brand {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
       color: #ffffff;
       font-weight: 700;
-      font-size: 18px;
     }
 
     .brand img {
-      height: 38px;
+      height: 52px;
+      margin-bottom: 6px;
+    }
+
+    .brand span {
+      font-size: 17px;
+      letter-spacing: 0.5px;
     }
 
     nav ul {
@@ -149,7 +155,7 @@
       color: #1e3a8a;
     }
 
-    /* ========== ABOUT ME ========== */
+    /* ========== ABOUT US ========== */
     .about {
       background: #ffffff;
       padding: 80px 20px;
@@ -226,7 +232,7 @@
     /* ========== MOBILE ========== */
     @media (max-width: 768px) {
       header {
-        padding: 14px 20px;
+        padding: 16px 20px;
       }
 
       .hero h1 {
@@ -250,7 +256,7 @@
 <header>
   <div class="brand">
     <img src="images/logo.png" alt="Basic Finances Logo" />
-    Basic Finances
+    <span>Basic Finances</span>
   </div>
 
   <nav>
@@ -258,8 +264,8 @@
       <li><a href="#">Home</a></li>
       <li><a href="#">Learn</a></li>
       <li><a href="#">Calculators</a></li>
-      <li><a href="#">About Me</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact Us</a></li>
     </ul>
   </nav>
 </header>
@@ -273,80 +279,4 @@
 
   <div class="hero-buttons">
     <a href="#" class="btn btn-primary">Book a Free Consultation</a>
-    <a href="#" class="btn btn-secondary">Explore Learning</a>
-  </div>
-</section>
-
-<section>
-  <h2>What We Offer</h2>
-
-  <div class="services-grid">
-    <div class="service-card">
-      <h3>Mutual Fund & SIP Education</h3>
-      <p>Clear understanding of mutual funds and SIPs without confusing jargon.</p>
-    </div>
-
-    <div class="service-card">
-      <h3>Goal-Based Financial Planning</h3>
-      <p>Align investments with life goals like retirement, education, and wealth creation.</p>
-    </div>
-
-    <div class="service-card">
-      <h3>Financial Calculators & Tools</h3>
-      <p>Simple tools to estimate returns and plan better decisions.</p>
-    </div>
-  </div>
-</section>
-
-<section class="about">
-  <div class="about-container">
-
-    <div class="about-avatar">
-      <img src="images/avatar.png" alt="Pranay R. Rewatkar">
-    </div>
-
-    <div class="about-content">
-      <h2>About Me</h2>
-
-      <p>
-        Hello, I’m <strong>Pranay R. Rewatkar</strong> — a B.Com and M.Com graduate and an
-        <strong>AMFI Registered Mutual Fund Distributor</strong>.
-      </p>
-
-      <p>
-        I help individuals and families achieve financial milestones through structured planning,
-        disciplined investing, and unbiased guidance.
-      </p>
-
-      <p>
-        Over the last <strong>3 years</strong>, I have managed and advised the portfolios of
-        <strong>200+ families</strong> across different life stages.
-      </p>
-
-      <h3>My Approach</h3>
-      <ul class="about-points">
-        <li>Client-first, goal-aligned recommendations</li>
-        <li>Clarity over complexity</li>
-        <li>Process-driven long-term investing</li>
-        <li>Transparent and trustworthy guidance</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<section class="cta">
-  <h2>Start Your Financial Journey With Clarity</h2>
-  <p>Let’s build your wealth with discipline and confidence.</p>
-  <br>
-  <a href="#" class="btn btn-primary">Get in Touch</a>
-</section>
-
-<footer>
-  <p><strong>Pranay R. Rewatkar</strong> — AMFI Registered Mutual Fund Distributor</p>
-  <p>Mutual fund investments are subject to market risks. Read all scheme related documents carefully.</p>
-  <p>© 2026 Basic Finances. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
+    <a
