@@ -8,203 +8,130 @@
 /* ================= BASE ================= */
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  line-height: 1.6;
+  background: #f9fafb;
   color: #1f2937;
-  background-color: #f9fafb;
+  line-height: 1.6;
 }
 
-/* ================= NAVBAR ================= */
-.navbar {
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ================= HEADER ================= */
+header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: #0b2e4f;
-  padding: 14px 40px;
-
+  background: #0b2e4f;
+  min-height: 120px;
+  padding: 16px 40px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
-/* Logo */
-.logo img {
-  height: 42px;
-  width: auto;
-  display: block;
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  font-weight: 700;
 }
 
-/* Navigation */
-.navbar nav ul {
+.brand img {
+  height: 52px;
+  margin-bottom: 6px;
+}
+
+.brand span {
+  font-size: 17px;
+  letter-spacing: 0.5px;
+}
+
+nav ul {
   list-style: none;
   display: flex;
   gap: 24px;
 }
 
-.navbar nav ul li a {
+nav a {
   color: #ffffff;
-  text-decoration: none;
   font-weight: 500;
 }
 
-.navbar nav ul li a:hover {
+nav a:hover {
   text-decoration: underline;
 }
 
-/* ================= HERO ================= */
-.hero {
-  background: linear-gradient(135deg, #1e3a8a, #1e40af);
-  color: #ffffff;
-  padding: 120px 20px;
+/* ================= FOOTER ================= */
+footer {
+  background: #111827;
+  color: #9ca3af;
+  padding: 40px 20px;
   text-align: center;
+  font-size: 14px;
 }
 
-.hero-content {
-  max-width: 900px;
-  margin: 0 auto;
+footer p {
+  margin-bottom: 12px;
 }
 
-.hero h1 {
-  font-size: 44px;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 18px;
-  opacity: 0.95;
-  margin-bottom: 36px;
-}
-
-/* Buttons */
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  padding: 14px 28px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.btn-primary {
-  background-color: #ffffff;
-  color: #1e3a8a;
-}
-
-.btn-primary:hover {
-  background-color: #e5e7eb;
-}
-
-.btn-secondary {
-  border: 2px solid #ffffff;
-  color: #ffffff;
-}
-
-.btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-/* ================= SERVICES ================= */
-.services {
-  padding: 60px 20px;
-  max-width: 900px;
-  margin: auto;
-}
-
-.services h2 {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.service-card {
-  background: #ffffff;
-  padding: 24px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-}
-
-/* ================= BLOG ================= */
-.blog-list {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
-
-.blog-card {
-  background: #ffffff;
-  padding: 28px;
-  margin-bottom: 30px;
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-}
-
-.blog-card h2 {
-  margin-bottom: 10px;
-}
-
-.blog-card a {
-  color: #1e40af;
-  text-decoration: none;
-}
-
-.blog-card p {
-  color: #4b5563;
-}
-
-.back-link {
-  text-align: center;
-  margin: 60px 0;
-}
-
-.back-link a {
-  color: #1e40af;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-/* ================= CONTACT ================= */
-.contact-info {
-  text-align: center;
-  padding: 60px 20px;
-}
-
-/* ================= WHATSAPP ================= */
-.whatsapp-float {
+/* ================= FLOATING SOCIAL BUTTONS ================= */
+.social-float {
   position: fixed;
-  bottom: 20px;
   right: 20px;
-  background-color: #25d366;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2000;
+}
+
+.social-float a {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #ffffff;
-  padding: 12px 18px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  font-size: 22px;
+  font-weight: bold;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease;
+}
+
+.social-float a:hover {
+  transform: scale(1.08);
+}
+
+.whatsapp {
+  background: #25D366;
+}
+
+.instagram {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285AEB 90%
+  );
+}
+
+.facebook {
+  background: #1877F2;
 }
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 32px;
+  header {
+    padding: 16px 20px;
   }
 
-  .hero p {
-    font-size: 16px;
-  }
-
-  .navbar {
-    padding: 14px 20px;
-  }
-
-  .navbar nav ul {
+  nav ul {
     gap: 14px;
   }
 }
