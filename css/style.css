@@ -168,5 +168,56 @@ section {
 .nav-links a:hover {
   text-decoration: underline;
 }
+/* =========================
+   NAVBAR STYLES
+========================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  background: #0b2a4a;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .nav-links {
+    gap: 14px;
+    font-size: 14px;
+  }
+}
+
 
 
