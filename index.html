@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Basic Finances | Simple Guidance for Smarter Decisions</title>
+  <meta charset="UTF-8" />
+  <title>Basic Finances | Smarter Financial Decisions</title>
 
-  <meta name="description"
-        content="Basic Finances helps individuals and families make smarter financial decisions through simple, unbiased guidance on Mutual Funds, SIPs, and long-term investing." />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Basic Finances helps individuals and families make smarter financial decisions through clear, goal-based investing and mutual fund guidance." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Google Search Console Verification -->
-  <meta name="google-site-verification"
-        content="bi6u5yfEV8bsN6X0lN-jWXTEWe7g9vhtE7riF8KZqDw" />
+  <meta name="google-site-verification" content="bi6u5yfEV8bsN6X0lN-jWXTEWe7g9vhtE7riF8KZqDw" />
 
-  <link rel="icon" href="favicon.png">
+  <link rel="icon" href="favicon.png" />
 
   <style>
-    /* ===== RESET ===== */
+    /* ========== RESET ========== */
     * {
       margin: 0;
       padding: 0;
@@ -35,7 +32,7 @@
       color: inherit;
     }
 
-    /* ===== HEADER ===== */
+    /* ========== HEADER ========== */
     header {
       position: sticky;
       top: 0;
@@ -51,9 +48,9 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      color: #ffffff;
       font-weight: 700;
       font-size: 18px;
-      color: #ffffff;
     }
 
     .brand img {
@@ -75,23 +72,23 @@
       text-decoration: underline;
     }
 
-    /* ===== HERO ===== */
+    /* ========== HERO ========== */
     .hero {
       background: linear-gradient(135deg, #1e3a8a, #1e40af);
       color: #ffffff;
-      padding: 120px 20px;
+      padding: 100px 20px;
       text-align: center;
     }
 
     .hero h1 {
-      font-size: 44px;
+      font-size: 42px;
       margin-bottom: 16px;
     }
 
     .hero p {
-      font-size: 18px;
       max-width: 760px;
       margin: 0 auto 36px;
+      font-size: 18px;
       opacity: 0.95;
     }
 
@@ -119,7 +116,7 @@
       color: #ffffff;
     }
 
-    /* ===== SECTION BASE ===== */
+    /* ========== SECTIONS ========== */
     section {
       max-width: 1100px;
       margin: 80px auto;
@@ -130,9 +127,10 @@
       text-align: center;
       font-size: 32px;
       margin-bottom: 40px;
+      color: #1e3a8a;
     }
 
-    /* ===== SERVICES ===== */
+    /* ========== SERVICES ========== */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -151,44 +149,40 @@
       color: #1e3a8a;
     }
 
-    /* ===== ABOUT ===== */
+    /* ========== ABOUT ME ========== */
     .about {
-  background: #ffffff;
-  padding: 60px 20px;
-}
-
-    .about-container {
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
+      background: #ffffff;
+      padding: 80px 20px;
     }
 
-   .about-avatar {
-  display: flex;
-  justify-content: center;
-}
+    .about-container {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 50px;
+      align-items: center;
+    }
 
-.about-avatar img {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #e5e7eb;
-}
+    .about-avatar {
+      text-align: center;
+    }
+
+    .about-avatar img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 4px solid #e5e7eb;
+      object-fit: cover;
+    }
 
     .about-content h2 {
       font-size: 32px;
       margin-bottom: 20px;
-      color: #1e3a8a;
     }
 
     .about-content h3 {
-      margin-top: 30px;
+      margin-top: 28px;
       margin-bottom: 12px;
       font-size: 22px;
       color: #1e3a8a;
@@ -196,19 +190,19 @@
 
     .about-content p {
       margin-bottom: 16px;
-      font-size: 16px;
       color: #374151;
     }
 
     .about-points {
       margin-left: 20px;
+      margin-top: 10px;
     }
 
     .about-points li {
       margin-bottom: 10px;
     }
 
-    /* ===== CTA ===== */
+    /* ========== CTA ========== */
     .cta {
       background: #e0e7ff;
       padding: 60px 20px;
@@ -216,21 +210,25 @@
       border-radius: 14px;
     }
 
-    /* ===== FOOTER ===== */
+    /* ========== FOOTER ========== */
     footer {
       background: #111827;
       color: #9ca3af;
       padding: 40px 20px;
-      margin-top: 80px;
       text-align: center;
       font-size: 14px;
     }
-    .about-content {
-  max-width: 700px;
-}
 
-    /* ===== MOBILE ===== */
+    footer p {
+      margin-bottom: 12px;
+    }
+
+    /* ========== MOBILE ========== */
     @media (max-width: 768px) {
+      header {
+        padding: 14px 20px;
+      }
+
       .hero h1 {
         font-size: 32px;
       }
@@ -251,17 +249,17 @@
 
 <header>
   <div class="brand">
-    <img src="images/logo.png" alt="Basic Finances Logo">
+    <img src="images/logo.png" alt="Basic Finances Logo" />
     Basic Finances
   </div>
 
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="blog/index.html">Learn</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Learn</a></li>
       <li><a href="#">Calculators</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#">About Me</a></li>
+      <li><a href="#">Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -269,13 +267,13 @@
 <section class="hero">
   <h1>Make Smarter Financial Decisions<br>With Confidence</h1>
   <p>
-    Simple, unbiased explanations on investments, SIPs, and long-term wealth creation —
+    Simple, unbiased guidance on investments, SIPs, and long-term wealth creation —
     designed to help you make informed financial choices.
   </p>
 
   <div class="hero-buttons">
-    <a href="blog/index.html" class="btn btn-primary">Explore Learning</a>
-    <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+    <a href="#" class="btn btn-primary">Book a Free Consultation</a>
+    <a href="#" class="btn btn-secondary">Explore Learning</a>
   </div>
 </section>
 
@@ -284,23 +282,23 @@
 
   <div class="services-grid">
     <div class="service-card">
-      <h3>Investment Education</h3>
-      <p>Understand mutual funds, SIPs, and investment basics without confusing jargon.</p>
+      <h3>Mutual Fund & SIP Education</h3>
+      <p>Clear understanding of mutual funds and SIPs without confusing jargon.</p>
     </div>
 
     <div class="service-card">
-      <h3>Goal-Based Planning</h3>
+      <h3>Goal-Based Financial Planning</h3>
       <p>Align investments with life goals like retirement, education, and wealth creation.</p>
     </div>
 
     <div class="service-card">
-      <h3>Tools & Calculators</h3>
-      <p>Simple tools to estimate returns and make better financial decisions.</p>
+      <h3>Financial Calculators & Tools</h3>
+      <p>Simple tools to estimate returns and plan better decisions.</p>
     </div>
   </div>
 </section>
 
-<section id="about" class="about">
+<section class="about">
   <div class="about-container">
 
     <div class="about-avatar">
@@ -339,19 +337,16 @@
 
 <section class="cta">
   <h2>Start Your Financial Journey With Clarity</h2>
-  <p>Build confidence through education and disciplined investing.</p><br>
-  <a href="blog/index.html" class="btn btn-primary">Start Learning</a>
+  <p>Let’s build your wealth with discipline and confidence.</p>
+  <br>
+  <a href="#" class="btn btn-primary">Get in Touch</a>
 </section>
 
 <footer>
-  <p><strong>Basic Finances</strong> — Simple guidance for smarter financial decisions.</p>
-  <p>
-    Mutual fund investments are subject to market risks.
-    Read all scheme related documents carefully.
-  </p>
+  <p><strong>Pranay R. Rewatkar</strong> — AMFI Registered Mutual Fund Distributor</p>
+  <p>Mutual fund investments are subject to market risks. Read all scheme related documents carefully.</p>
   <p>© 2026 Basic Finances. All rights reserved.</p>
 </footer>
 
 </body>
 </html>
-
