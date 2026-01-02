@@ -1,0 +1,131 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  background-color: #f9fafb;
+  color: #1f2933;
+}
+
+.header {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
+.header h1 {
+  margin-top: 5px;
+}
+.tagline {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.services {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.services h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.service-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.connect {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.connect a {
+  color: #1e40af;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer {
+  background: #111827;
+  color: #9ca3af;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}
+.disclaimer {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-top: 15px;
+  line-height: 1.6;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact-info {
+  text-align: center;
+  padding: 40px 20px;
+  background: #f9fafb;
+}
+.contact-info a {
+  color: #1e40af;
+  text-decoration: none;
+  font-weight: 500;
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+section {
+  margin-bottom: 0;
+}
+
+.connect {
+  padding-bottom: 20px;
+}
+.logo {
+  width: 95px;
+  height: auto;
+  margin-bottom: 14px;
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+}
+.blog-list {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.blog-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.blog-card a {
+  color: #1e40af;
+  text-decoration: none;
+}
+
+.blog-content {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+  line-height: 1.7;
+}
+
