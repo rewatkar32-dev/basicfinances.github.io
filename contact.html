@@ -1,33 +1,263 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Contact – Basic Finances</title>
+  <meta charset="UTF-8">
+  <title>Contact | Basic Finances</title>
+
+  <meta name="description" content="Get in touch with Basic Finances for queries related to personal finance education, investments, and learning resources." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" href="favicon.png">
+
+  <style>
+    /* ================= RESET ================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f9fafb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #0b2e4f;
+      padding: 14px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 18px;
+      color: #ffffff;
+    }
+
+    .brand img {
+      height: 38px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+
+    nav a {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ================= PAGE HEADER ================= */
+    .page-hero {
+      background: #eef2ff;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .page-hero p {
+      max-width: 720px;
+      margin: auto;
+      font-size: 17px;
+      color: #374151;
+    }
+
+    /* ================= CONTACT SECTION ================= */
+    .contact-section {
+      max-width: 800px;
+      margin: 70px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      margin-bottom: 14px;
+      font-size: 28px;
+    }
+
+    .contact-section p {
+      margin-bottom: 28px;
+      font-size: 16px;
+      color: #4b5563;
+    }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .contact-card {
+      background: #ffffff;
+      padding: 26px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    .contact-card h3 {
+      margin-bottom: 8px;
+      color: #1e3a8a;
+    }
+
+    .contact-card a {
+      color: #1e40af;
+      font-weight: 600;
+    }
+
+    /* ================= DISCLAIMER ================= */
+    .contact-disclaimer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      padding: 40px 20px;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer-content p {
+      margin-bottom: 12px;
+    }
+
+    /* ================= MOBILE ================= */
+    @media (max-width: 768px) {
+      .page-hero h1 {
+        font-size: 30px;
+      }
+
+      nav ul {
+        gap: 14px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <nav class="navbar">
-  <div class="nav-container">
-    <a href="/index.html" class="nav-logo">Basic Finances</a>
 
-    <ul class="nav-links">
-      <li><a href="/index.html">Home</a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <img src="images/logo.png" alt="Basic Finances Logo">
+      Basic Finances
+    </div>
 
-<h1>Contact Us</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog/index.html">Learn</a></li>
+        <li><a href="#">Calculators</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<form name="contact" method="POST" data-netlify="true">
-  <input type="text" name="name" placeholder="Name" required><br>
-  <input type="email" name="email" placeholder="Email" required><br>
-  <input type="text" name="phone" placeholder="Phone"><br>
-  <textarea name="message" placeholder="Message"></textarea><br>
-  <button type="submit">Submit</button>
-</form>
+  <!-- PAGE INTRO -->
+  <section class="page-hero">
+    <h1>Contact Us</h1>
+    <p>
+      Have a question about personal finance or investing concepts?
+      Reach out and we’ll guide you in the right direction.
+    </p>
+  </section>
+
+  <!-- CONTACT INFO -->
+  <section class="contact-section">
+    <h2>Get in Touch</h2>
+    <p>
+      We focus on education and clarity. Feel free to contact us for
+      learning-related queries or general information.
+    </p>
+
+    <div class="contact-cards">
+
+      <div class="contact-card">
+        <h3>Email</h3>
+        <p>
+          <a href="mailto:basicfinances.in@gmail.com">
+            basicfinances.in@gmail.com
+          </a>
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <h3>WhatsApp</h3>
+        <p>
+          <a href="#">
+            Coming Soon
+          </a>
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Location</h3>
+        <p>
+          India
+        </p>
+      </div>
+
+    </div>
+
+    <div class="contact-disclaimer">
+      This page is intended for educational queries only.  
+      We do not provide personalized financial advice or investment recommendations.
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <p><strong>Basic Finances</strong> — Simple guidance for smarter financial decisions.</p>
+
+      <p>
+        Mutual fund investments are subject to market risks.
+        Read all scheme related documents carefully.
+        <br>
+        This website is for educational purposes only and does not constitute financial advice.
+      </p>
+
+      <p>© 2026 Basic Finances. All rights reserved.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
-
-
-
