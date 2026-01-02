@@ -343,6 +343,39 @@ section {
     font-size: 16px;
   }
 }
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  background-color: #0b2e4f;
+}
+
+/* Logo */
+.logo img {
+  height: 42px;
+  width: auto;
+}
+
+/* Navigation */
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar nav ul li a:hover {
+  text-decoration: underline;
+}
+
 
 
 
