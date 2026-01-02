@@ -7,50 +7,187 @@
   <meta name="description" content="Basic Finances helps you make smarter financial decisions with simple guidance on mutual funds, SIPs, and investments." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" href="favicon.png" />
+
+  <style>
+    /* ================= RESET ================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f9fafb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: #0b2a4a;
+      padding: 14px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .logo img {
+      height: 38px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: white;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      background: linear-gradient(135deg, #1e3a8a, #1e40af);
+      color: white;
+      padding: 110px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto 32px;
+      opacity: 0.95;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #1e3a8a;
+    }
+
+    .btn-secondary {
+      border: 2px solid white;
+      color: white;
+    }
+
+    /* ================= SERVICES ================= */
+    .services {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .services h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 30px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 24px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    /* ================= MOBILE ================= */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- ================= NAVBAR ================= -->
+  <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo">
       <a href="index.html">
-        <img src="images/logo.png" alt="Basic Finances Logo" />
+        <img src="images/logo.png" alt="Basic Finances Logo">
+        Basic Finances
       </a>
     </div>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="blog/index.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </header>
 
-  <!-- ================= HERO SECTION ================= -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Make Smarter Financial Decisions<br />With Confidence</h1>
+    <h1>Make Smarter Financial Decisions<br>With Confidence</h1>
+    <p>
+      Simple, unbiased guidance on Mutual Funds, SIPs, investments,
+      and long-term wealth creation.
+    </p>
 
-      <p>
-        Simple, unbiased guidance on Mutual Funds, SIPs, investments,
-        and long-term wealth creation.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="blog/index.html" class="btn btn-primary">Read Our Blog</a>
-        <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
-      </div>
+    <div class="hero-buttons">
+      <a href="blog/index.html" class="btn btn-primary">Read Our Blog</a>
+      <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
     </div>
   </section>
 
-  <!-- ================= SERVICES ================= -->
+  <!-- SERVICES -->
   <section class="services">
     <h2>Our Services</h2>
 
@@ -64,6 +201,13 @@
       <p>Personalized financial strategies aligned to your life goals.</p>
     </div>
   </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Basic Finances. All rights reserved.  
+    <br>
+    Mutual fund investments are subject to market risks. Read all scheme related documents carefully.
+  </footer>
 
 </body>
 </html>
