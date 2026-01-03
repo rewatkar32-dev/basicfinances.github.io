@@ -308,6 +308,42 @@ footer {
   font-size: 16px;
   line-height: 1.5;
 }
+/* ================= MOBILE HEADER – FINAL FIX ================= */
+@media (max-width: 768px) {
+  header {
+    background: #0b2e4f;          /* FORCE background */
+    height: auto;
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .brand {
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .brand img {
+    max-height: 54px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  nav ul {
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;               /* FORCE text color */
+  }
+}
+
 
 
 
