@@ -17,16 +17,14 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
 /* ================= HEADER ================= */
 header {
-  header {
   position: sticky;
   top: 0;
   z-index: 1000;
   background: #0b2e4f;
 
-  height: 88px;                 /* FIXED, controlled */
+  height: 88px;
   padding: 0 48px;
 
   display: flex;
@@ -34,11 +32,78 @@ header {
   align-items: center;
 }
 
+/* Brand */
 .brand {
   height: 100%;
   display: flex;
   align-items: center;
 }
+
+.brand img {
+  max-height: 76px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand span {
+  font-size: 17px;
+  letter-spacing: 0.5px;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+nav a {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ================= HEADER – MOBILE ================= */
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .brand {
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .brand img {
+    max-height: 54px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  nav ul {
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+}
+
 
 .brand img {
   max-height: 76px;     /* IMPORTANT */
@@ -184,40 +249,6 @@ footer {
   transform: translateY(-2px);
 }
 
-
-/* ================= MOBILE ================= */
-/* ================= MOBILE HEADER FIX ================= */
-@media (max-width: 768px) {
-  header {
-    height: auto;                 /* allow natural height */
-    padding: 12px 20px;
-    flex-wrap: wrap;              /* allow wrapping */
-  }
-
-  .brand {
-    height: auto;
-  }
-
-  .brand img {
-    max-height: 56px;             /* smaller logo for mobile */
-  }
-
-  nav {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  nav ul {
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  nav a {
-    font-size: 15px;              /* readable, not bulky */
-  }
-}
-
 /* ================= WHY CHOOSE ================= */
 .why-choose {
   max-width: 1100px;
@@ -268,7 +299,6 @@ footer {
   transform: translateY(-6px);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1);
 }
-
 /* ================= SERVICES (FORCE FIX) ================= */
 .services {
   max-width: 1100px;
@@ -308,41 +338,7 @@ footer {
   font-size: 16px;
   line-height: 1.5;
 }
-/* ================= MOBILE HEADER – FINAL FIX ================= */
-@media (max-width: 768px) {
-  header {
-    background: #0b2e4f;          /* FORCE background */
-    height: auto;
-    padding: 14px 16px;
-    flex-direction: column;
-    align-items: center;
-  }
 
-  .brand {
-    height: auto;
-    margin-bottom: 10px;
-  }
-
-  .brand img {
-    max-height: 54px;
-  }
-
-  nav {
-    width: 100%;
-  }
-
-  nav ul {
-    justify-content: center;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-
-  nav a {
-    font-size: 15px;
-    font-weight: 600;
-    color: #ffffff;               /* FORCE text color */
-  }
-}
 
 
 
