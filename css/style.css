@@ -40,8 +40,8 @@ header {
 }
 
 .brand img {
-  height: 52px;
-  margin-bottom: 6px;
+  height: 80px;
+  margin-bottom:20px;
 }
 
 .brand span {
@@ -282,6 +282,7 @@ footer {
   font-size: 16px;
   line-height: 1.5;
 }
+
 
 
 
