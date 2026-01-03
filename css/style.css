@@ -20,28 +20,31 @@ a {
 
 /* ================= HEADER ================= */
 header {
+  header {
   position: sticky;
   top: 0;
   z-index: 1000;
   background: #0b2e4f;
-  min-height: 120px;
-  padding: 16px 40px;
+
+  height: 88px;                 /* FIXED, controlled */
+  padding: 0 48px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #ffffff;
-  font-weight: 700;
-}
-.brand img {
   height: 100%;
-  max-height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.brand img {
+  max-height: 76px;     /* IMPORTANT */
   width: auto;
+  object-fit: contain;
+}
 }
 .brand {
   height: 100%;
@@ -57,12 +60,16 @@ header {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 24px;
+  gap: 28px;
+  align-items: center;
 }
+
 
 nav a {
   color: #ffffff;
-  font-weight: 500;
+  font-weight: 600;     /* stronger */
+  font-size: 16px;      /* increased */
+  letter-spacing: 0.3px;
 }
 
 nav a:hover {
@@ -179,24 +186,38 @@ footer {
 
 
 /* ================= MOBILE ================= */
+/* ================= MOBILE HEADER FIX ================= */
 @media (max-width: 768px) {
   header {
-    padding: 16px 20px;
+    height: auto;                 /* allow natural height */
+    padding: 12px 20px;
+    flex-wrap: wrap;              /* allow wrapping */
+  }
+
+  .brand {
+    height: auto;
+  }
+
+  .brand img {
+    max-height: 56px;             /* smaller logo for mobile */
+  }
+
+  nav {
+    width: 100%;
+    margin-top: 10px;
   }
 
   nav ul {
-    gap: 14px;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
   }
 
-  .hero h1 {
-    font-size: 32px;
+  nav a {
+    font-size: 15px;              /* readable, not bulky */
   }
-  .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
 }
-}
+
 /* ================= WHY CHOOSE ================= */
 .why-choose {
   max-width: 1100px;
@@ -287,6 +308,7 @@ footer {
   font-size: 16px;
   line-height: 1.5;
 }
+
 
 
 
