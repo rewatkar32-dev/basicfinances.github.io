@@ -120,6 +120,39 @@ footer {
 footer p {
   margin-bottom: 12px;
 }
+/* ================= FOOTER SOCIAL BAR ================= */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  background: #0f172a;
+}
+footer {
+  background: #020617;
+  color: #9ca3af;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer-content {
+  padding: 32px 20px;
+}
+
+.footer-social a {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
 
 /* ================= FLOATING SOCIAL BUTTONS ================= */
 .social-float {
@@ -227,5 +260,6 @@ footer p {
   font-size: 16px;
   line-height: 1.5;
 }
+
 
 
