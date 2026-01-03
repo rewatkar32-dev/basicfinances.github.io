@@ -154,54 +154,6 @@ footer {
   transform: translateY(-2px);
 }
 
-/* ================= FLOATING SOCIAL BUTTONS ================= */
-.social-float {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 2000;
-}
-
-.social-float a {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-size: 22px;
-  font-weight: bold;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-  transition: transform 0.2s ease;
-}
-
-.social-float a:hover {
-  transform: scale(1.08);
-}
-
-.whatsapp {
-  background: #25D366;
-}
-
-.instagram {
-  background: radial-gradient(
-    circle at 30% 107%,
-    #fdf497 0%,
-    #fdf497 5%,
-    #fd5949 45%,
-    #d6249f 60%,
-    #285AEB 90%
-  );
-}
-
-.facebook {
-  background: #1877F2;
-}
-
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
   header {
@@ -260,6 +212,7 @@ footer {
   font-size: 16px;
   line-height: 1.5;
 }
+
 
 
 
