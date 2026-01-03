@@ -192,6 +192,57 @@ footer {
   gap: 24px;
 }
 }
+/* ================= WHY CHOOSE ================= */
+.why-choose {
+  max-width: 1100px;
+  margin: 90px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.why-choose h2 {
+  font-size: 32px;
+  margin-bottom: 48px;
+  color: #1e3a8a;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+}
+
+.why-card {
+  background: #ffffff;
+  padding: 32px 24px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.why-card i {
+  font-size: 32px;
+  color: #1e3a8a;
+  margin-bottom: 16px;
+}
+
+.why-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.why-card p {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1);
+}
+
 /* ================= SERVICES (FORCE FIX) ================= */
 .services {
   max-width: 1100px;
@@ -231,6 +282,7 @@ footer {
   font-size: 16px;
   line-height: 1.5;
 }
+
 
 
 
