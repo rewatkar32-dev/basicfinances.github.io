@@ -125,11 +125,12 @@ footer p {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 28px;
-  padding: 24px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  background: #0f172a;
+  gap: 32px;
+  padding: 28px 0;
+  background: linear-gradient(180deg, #0b1220, #020617);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 footer {
   background: #020617;
   color: #9ca3af;
@@ -143,16 +144,34 @@ footer {
 
 .footer-social a {
   color: #ffffff;
-  font-size: 18px;
-  font-weight: 600;
-  opacity: 0.85;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  font-size: 26px;
+  opacity: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.footer-social a:hover .fa-whatsapp {
+  color: #25D366;
+}
+
+.footer-social a:hover .fa-instagram {
+  color: #E1306C;
+}
+
+.footer-social a:hover .fa-facebook-f {
+  color: #1877F2;
 }
 
 .footer-social a:hover {
-  opacity: 1;
+  background: rgba(255, 255, 255, 0.18);
   transform: translateY(-2px);
 }
+
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
@@ -212,6 +231,7 @@ footer {
   font-size: 16px;
   line-height: 1.5;
 }
+
 
 
 
