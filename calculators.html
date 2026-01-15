@@ -45,47 +45,59 @@
     Simple tools to help you estimate, plan, and understand your financial decisions better.
   </p>
 </section>
-
-<!-- CALCULATORS LIST -->
-<section class="services">
-  <h2>Available Calculators</h2>
-
-  <div class="services-grid">
-
-    <div class="service-card">
-      <h3>SIP Calculator</h3>
-      <p>
-        Estimate the future value of your monthly SIP investments and understand the power of compounding.
-      </p>
-      <a href="sip-calculator.html" class="btn btn-primary">Use Calculator</a>
-    </div>
-
-    <div class="service-card">
-      <h3>Lumpsum Calculator</h3>
-      <p>
-        Calculate the future value of a one-time investment over a selected time period.
-      </p>
-      <a href="#" class="btn btn-secondary">Coming Soon</a>
-    </div>
-
-    <div class="service-card">
-      <h3>Retirement Calculator</h3>
-      <p>
-        Estimate how much you need to save today to maintain your lifestyle after retirement.
-      </p>
-      <a href="#" class="btn btn-secondary">Coming Soon</a>
-    </div>
-
-    <div class="service-card">
-      <h3>Goal Planning Calculator</h3>
-      <p>
-        Plan investments required to achieve goals like education, home purchase, or wealth creation.
-      </p>
-      <a href="#" class="btn btn-secondary">Coming Soon</a>
-    </div>
-
+<!-- GOAL SELECTOR -->
+<section class="goal-selector">
+  <div class="goal-tabs">
+    <button class="goal-tab active" onclick="selectGoal('education')">Child Education</button>
+    <button class="goal-tab" onclick="selectGoal('wedding')">Child Wedding</button>
+    <button class="goal-tab" onclick="selectGoal('home')">Dream Home</button>
+    <button class="goal-tab" onclick="selectGoal('retirement')">Retirement</button>
+    <button class="goal-tab" onclick="selectGoal('sip')">SIP</button>
+    <button class="goal-tab" onclick="selectGoal('custom')">Custom Goal</button>
   </div>
 </section>
+
+<!-- CALCULATOR -->
+<section class="goal-calculator">
+
+  <!-- INPUTS -->
+  <div class="calculator-inputs">
+    <h2 id="goalTitle">Plan Your Child’s Education</h2>
+
+    <label>Years to Goal</label>
+    <input type="number" id="years" value="15">
+
+    <label>Current Cost (₹)</label>
+    <input type="number" id="currentCost" value="1000000">
+
+    <label>Existing Investment (₹)</label>
+    <input type="number" id="existing" value="0">
+
+    <label>Expected Inflation (%)</label>
+    <input type="number" id="inflation" value="7">
+
+    <label>Expected Return (%)</label>
+    <input type="number" id="returnRate" value="12">
+
+    <button class="btn btn-primary" onclick="calculateGoal()">Calculate</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="calculator-results">
+    <h2>Your Results</h2>
+
+    <p><strong>Years Left:</strong> <span id="resYears">0</span></p>
+    <p><strong>Future Cost:</strong> ₹ <span id="resFuture">0</span></p>
+    <p><strong>Existing Investment:</strong> ₹ <span id="resExisting">0</span></p>
+    <p><strong>Required Monthly SIP:</strong> ₹ <span id="resSip">0</span></p>
+
+    <p class="calc-note">
+      Results are indicative only. Mutual fund investments are subject to market risks.
+    </p>
+  </div>
+
+</section>
+
 
 <!-- FOOTER -->
 <footer>
