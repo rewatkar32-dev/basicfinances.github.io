@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Contact | Basic Finances</title>
 
-  <meta name="description" content="Get in touch with Basic Finances for queries related to personal finance education, investments, and learning resources." />
+  <meta name="description" content="Contact Basic Finances for free consultation and queries related to personal finance education, SIPs, and investments." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" href="favicon.png">
@@ -69,7 +69,7 @@
       text-decoration: underline;
     }
 
-    /* ================= PAGE HEADER ================= */
+    /* ================= PAGE HERO ================= */
     .page-hero {
       background: #eef2ff;
       padding: 80px 20px;
@@ -90,7 +90,7 @@
 
     /* ================= CONTACT SECTION ================= */
     .contact-section {
-      max-width: 800px;
+      max-width: 900px;
       margin: 70px auto;
       padding: 0 20px;
       text-align: center;
@@ -107,33 +107,24 @@
       color: #4b5563;
     }
 
-    .contact-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
+    /* ================= FORM ================= */
+    .form-wrapper {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
       margin-top: 40px;
     }
 
-    .contact-card {
-      background: #ffffff;
-      padding: 26px;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-    }
-
-    .contact-card h3 {
-      margin-bottom: 8px;
-      color: #1e3a8a;
-    }
-
-    .contact-card a {
-      color: #1e40af;
-      font-weight: 600;
+    iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
     }
 
     /* ================= DISCLAIMER ================= */
     .contact-disclaimer {
-      margin-top: 50px;
+      margin-top: 40px;
       font-size: 14px;
       color: #6b7280;
       line-height: 1.6;
@@ -167,6 +158,10 @@
       nav ul {
         gap: 14px;
       }
+
+      iframe {
+        height: 850px;
+      }
     }
   </style>
 </head>
@@ -195,51 +190,31 @@
   <section class="page-hero">
     <h1>Contact Us</h1>
     <p>
-      Have a question about personal finance or investing concepts?
-      Reach out and we’ll guide you in the right direction.
+      Have a question or want a free consultation?
+      Share your details and we’ll connect with you shortly.
     </p>
   </section>
 
-  <!-- CONTACT INFO -->
+  <!-- CONTACT FORM -->
   <section class="contact-section">
     <h2>Get in Touch</h2>
     <p>
-      We focus on education and clarity. Feel free to contact us for
-      learning-related queries or general information.
+      We provide simple, unbiased guidance to help you make informed financial decisions.
     </p>
 
-    <div class="contact-cards">
-
-      <div class="contact-card">
-        <h3>Email</h3>
-        <p>
-          <a href="mailto:basicfinances.in@gmail.com">
-            basicfinances.in@gmail.com
-          </a>
-        </p>
-      </div>
-
-      <div class="contact-card">
-        <h3>WhatsApp</h3>
-        <p>
-          <a href="#">
-            Coming Soon
-          </a>
-        </p>
-      </div>
-
-      <div class="contact-card">
-        <h3>Location</h3>
-        <p>
-          India
-        </p>
-      </div>
-
+    <div class="form-wrapper">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1jzohIoyZNKzGl2XEWwUDPYRdVCZwW_CBxW5UQTcj9xc/viewform?embedded=true"
+        loading="lazy">
+        Loading…
+      </iframe>
     </div>
 
     <div class="contact-disclaimer">
-      This page is intended for educational queries only.  
-      We do not provide personalized financial advice or investment recommendations.
+      By submitting this form, you agree to be contacted by Basic Finances.
+      We respect your privacy and do not share your data with third parties.
+      <br><br>
+      This website is for educational purposes only and does not provide personalized financial advice.
     </div>
   </section>
 
