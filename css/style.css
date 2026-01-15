@@ -378,6 +378,81 @@ input {
   border: 1px solid #d1d5db;
   font-size: 15px;
 }
+/* ================= GOAL CALCULATOR ================= */
+
+.goal-selector {
+  background: #f3f4f6;
+  padding: 20px;
+}
+
+.goal-tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.goal-tab {
+  padding: 14px 18px;
+  border: none;
+  background: #e5e7eb;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.goal-tab.active {
+  background: #facc15;
+  color: #111827;
+}
+
+.goal-calculator {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.calculator-inputs,
+.calculator-results {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.calculator-inputs label {
+  display: block;
+  margin-top: 14px;
+  font-weight: 600;
+}
+
+.calculator-inputs input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+.calculator-results h2 {
+  margin-bottom: 20px;
+}
+
+.calc-note {
+  font-size: 13px;
+  margin-top: 20px;
+  color: #6b7280;
+}
+
+@media (max-width: 768px) {
+  .goal-calculator {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
 
