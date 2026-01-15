@@ -452,6 +452,11 @@ input {
     grid-template-columns: 1fr;
   }
 }
+.calculator-inputs label input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.1);
+}
+
 
 
 
