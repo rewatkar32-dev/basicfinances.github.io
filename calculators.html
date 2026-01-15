@@ -126,6 +126,46 @@
   </div>
 
 </footer>
+<script>
+let currentGoal = "education";
+
+function selectGoal(goal) {
+  currentGoal = goal;
+
+  document.querySelectorAll(".goal-tab").forEach(btn => btn.classList.remove("active"));
+  event.target.classList.add("active");
+
+  const titles = {
+    education: "Plan Your Child’s Education",
+    wedding: "Plan Your Child’s Wedding",
+    home: "Plan Your Dream Home",
+    retirement: "Plan Your Retirement",
+    sip: "SIP Investment Planning",
+    custom: "Custom Goal Planning"
+  };
+
+  document.getElementById("goalTitle").innerText = titles[goal];
+}
+
+function calculateGoal() {
+  const years = Number(document.getElementById("years").value);
+  const cost = Number(document.getElementById("currentCost").value);
+  const existing = Number(document.getElementById("existing").value);
+  const inflation = Number(document.getElementById("inflation").value) / 100;
+  const returnRate = Number(document.getElementById("returnRate").value) / 100 / 12;
+
+  const futureCost = cost * Math.pow(1 + inflation, years);
+  const goalAmount = futureCost - existing;
+  const months = years * 12;
+
+  const sip = goalAmount * returnRate / (Math.pow(1 + returnRate, months) - 1);
+
+  document.getElementById("resYears").innerText = years;
+  document.getElementById("resFuture").innerText = Math.round(futureCost).toLocaleString("en-IN");
+  document.getElementById("resExisting").innerText = existing.toLocaleString("en-IN");
+  document.getElementById("resSip").innerText = Math.round(sip).toLocaleString("en-IN");
+}
+</script>
 
 </body>
 </html>
