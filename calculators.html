@@ -142,7 +142,6 @@ let currentGoal = "education";
 
 function selectGoal(goal) {
   currentGoal = goal;
-
   document.querySelectorAll(".goal-tab").forEach(btn => btn.classList.remove("active"));
   event.target.classList.add("active");
 
@@ -158,25 +157,74 @@ function selectGoal(goal) {
   document.getElementById("goalTitle").innerText = titles[goal];
 }
 
+function toggleStepUp() {
+  document.getElementById("stepUpBlock").style.display =
+    document.getElementById("stepUpEnabled").checked ? "block" : "none";
+}
+
 function calculateGoal() {
   const years = Number(document.getElementById("years").value);
   const cost = Number(document.getElementById("currentCost").value);
   const existing = Number(document.getElementById("existing").value);
   const inflation = Number(document.getElementById("inflation").value) / 100;
-  const returnRate = Number(document.getElementById("returnRate").value) / 100 / 12;
+  const annualReturn = Number(document.getElementById("returnRate").value) / 100;
+  const monthlyReturn = annualReturn / 12;
+
+  const stepUpEnabled = document.getElementById("stepUpEnabled").checked;
+  const stepUpRate = stepUpEnabled
+    ? Number(document.getElementById("stepUpRate").value) / 100
+    : 0;
 
   const futureCost = cost * Math.pow(1 + inflation, years);
   const goalAmount = futureCost - existing;
-  const months = years * 12;
 
-  const sip = goalAmount * returnRate / (Math.pow(1 + returnRate, months) - 1);
+  let invested = 0;
+  let futureValue = 0;
+
+  if (!stepUpEnabled) {
+    // NORMAL SIP
+    const months = years * 12;
+    const sip =
+      goalAmount * monthlyReturn /
+      (Math.pow(1 + monthlyReturn, months) - 1);
+
+    invested = sip * months;
+    futureValue = goalAmount;
+
+    document.getElementById("resSip").innerText =
+      Math.round(sip).toLocaleString("en-IN");
+  } else {
+    // STEP-UP SIP
+    let monthlySip = goalAmount / (years * 12); // starting guess
+
+    for (let y = 1; y <= years; y++) {
+      for (let m = 1; m <= 12; m++) {
+        const monthsLeft = (years - y) * 12 + (12 - m + 1);
+        futureValue +=
+          monthlySip * Math.pow(1 + monthlyReturn, monthsLeft);
+        invested += monthlySip;
+      }
+      monthlySip *= (1 + stepUpRate);
+    }
+
+    // Adjust starting SIP
+    const adjustmentFactor = goalAmount / futureValue;
+    const startingSip =
+      (goalAmount / futureValue) *
+      (goalAmount / (years * 12));
+
+    document.getElementById("resSip").innerText =
+      Math.round(startingSip).toLocaleString("en-IN");
+  }
 
   document.getElementById("resYears").innerText = years;
-  document.getElementById("resFuture").innerText = Math.round(futureCost).toLocaleString("en-IN");
-  document.getElementById("resExisting").innerText = existing.toLocaleString("en-IN");
-  document.getElementById("resSip").innerText = Math.round(sip).toLocaleString("en-IN");
+  document.getElementById("resFuture").innerText =
+    Math.round(futureCost).toLocaleString("en-IN");
+  document.getElementById("resExisting").innerText =
+    existing.toLocaleString("en-IN");
 }
 </script>
+
 
 </body>
 </html>
