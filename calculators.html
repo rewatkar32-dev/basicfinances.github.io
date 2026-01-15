@@ -79,6 +79,17 @@
     <label>Expected Return (%)</label>
     <input type="number" id="returnRate" value="12">
 
+    <label>
+  <input type="checkbox" id="stepUpEnabled" onchange="toggleStepUp()">
+  Enable Step-Up SIP
+</label>
+
+<div id="stepUpBlock" style="display:none;">
+  <label>Annual Step-Up (%)</label>
+  <input type="number" id="stepUpRate" value="10">
+</div>
+
+
     <button class="btn btn-primary" onclick="calculateGoal()">Calculate</button>
   </div>
 
