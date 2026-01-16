@@ -1,177 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Financial Calculators | Basic Finances</title>
 
-  <meta name="description" content="Free financial calculators including SIP, mutual fund, retirement and goal planning calculators by Basic Finances." />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Goal-based SIP, Step-Up SIP and FIRE retirement calculators by Basic Finances." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" href="favicon.png" />
-
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
-
-  <!-- Main Styles -->
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 <header>
   <div class="brand">
-    <img src="images/logo.png" alt="Basic Finances Logo" />
+    <img src="images/logo.png" alt="Basic Finances Logo">
   </div>
 
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="blog/index.html">Learn</a></li>
-      <li><a href="calculators.html">Calculators</a></li>
+      <li><a href="calculators.html" class="active">Calculators</a></li>
       <li><a href="about.html">About Us</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
   </nav>
 </header>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section class="hero">
-  <h1>Financial Calculators</h1>
+  <h1>Financial Planning Calculators</h1>
   <p>
-    Simple tools to help you estimate, plan, and understand your financial decisions better.
+    Plan your goals, investments, and retirement with practical,
+    easy-to-understand financial calculators.
   </p>
 </section>
-<!-- GOAL SELECTOR -->
+
+<!-- ================= GOAL TABS ================= -->
 <section class="goal-selector">
   <div class="goal-tabs">
-    <button class="goal-tab active" onclick="selectGoal('education')">Child Education</button>
-    <button class="goal-tab" onclick="selectGoal('wedding')">Child Wedding</button>
-    <button class="goal-tab" onclick="selectGoal('home')">Dream Home</button>
-    <button class="goal-tab" onclick="selectGoal('retirement')">Retirement</button>
-    <button class="goal-tab" onclick="selectGoal('sip')">SIP</button>
-    <button class="goal-tab" onclick="selectGoal('custom')">Custom Goal</button>
+    <button class="goal-tab active" onclick="selectGoal('education', this)">Child Education</button>
+    <button class="goal-tab" onclick="selectGoal('wedding', this)">Child Wedding</button>
+    <button class="goal-tab" onclick="selectGoal('home', this)">Dream Home</button>
+    <button class="goal-tab" onclick="selectGoal('sip', this)">SIP</button>
+    <button class="goal-tab" onclick="selectGoal('custom', this)">Custom Goal</button>
+    <button class="goal-tab" onclick="selectGoal('retirement', this)">FIRE Retirement</button>
   </div>
 </section>
 
-<!-- CALCULATOR -->
+<!-- ================= CALCULATOR ================= -->
 <section class="goal-calculator">
 
   <!-- INPUTS -->
   <div class="calculator-inputs">
     <h2 id="goalTitle">Plan Your Child’s Education</h2>
 
-    <label>Years to Goal</label>
-    <input type="number" id="years" value="15">
+    <!-- COMMON GOAL INPUTS -->
+    <div id="goalInputs">
+      <label>Years to Goal</label>
+      <input type="number" id="years" value="15">
 
-    <label>Current Cost (₹)</label>
-    <input type="number" id="currentCost" value="1000000">
+      <label>Current Cost (₹)</label>
+      <input type="number" id="currentCost" value="1000000">
 
-    <label>Existing Investment (₹)</label>
-    <input type="number" id="existing" value="0">
+      <label>Existing Savings (₹)</label>
+      <input type="number" id="existing" value="0">
 
-    <label>Expected Inflation (%)</label>
-    <input type="number" id="inflation" value="7">
+      <label>Expected Inflation (%)</label>
+      <input type="number" id="inflation" value="7">
 
-    <label>Expected Return (%)</label>
-    <input type="number" id="returnRate" value="12">
+      <label>Expected Return (%)</label>
+      <input type="number" id="returnRate" value="12">
 
-    <label>
-  <input type="checkbox" id="stepUpEnabled" onchange="toggleStepUp()">
-  Enable Step-Up SIP
-</label>
+      <label>
+        <input type="checkbox" id="stepUpEnabled" onchange="toggleStepUp()">
+        Enable Step-Up SIP
+      </label>
 
-<div id="stepUpBlock" style="display:none;">
-  <label>Annual Step-Up (%)</label>
-  <input type="number" id="stepUpRate" value="10">
-</div>
+      <div id="stepUpBlock" style="display:none;">
+        <label>Annual Step-Up (%)</label>
+        <input type="number" id="stepUpRate" value="10">
+      </div>
+    </div>
 
+    <!-- FIRE INPUTS -->
+    <div id="fireInputs" style="display:none;">
+      <label>Monthly Expenses (₹)</label>
+      <input type="number" id="monthlyExpense" placeholder="e.g. 40000">
 
-    <button class="btn btn-primary" onclick="calculateGoal(if (currentGoal === "retirement") {
+      <label>Inflation Rate (%)</label>
+      <input type="number" id="fireInflation" value="6">
 
-  const monthlyExpense = Number(document.getElementById("monthlyExpense").value);
-  const inflation = Number(document.getElementById("fireInflation").value) / 100;
-  const returnRate = Number(document.getElementById("fireReturn").value) / 100;
-  const currentAge = Number(document.getElementById("currentAge").value);
-  const retirementAge = Number(document.getElementById("retirementAge").value);
-  const existing = Number(document.getElementById("fireSavings").value);
+      <label>Expected Return (%)</label>
+      <input type="number" id="fireReturn" value="10">
 
-  if (
-    !monthlyExpense || !currentAge || !retirementAge ||
-    retirementAge <= currentAge
-  ) {
-    alert("Please enter valid retirement details.");
-    return;
-  }
+      <label>Current Age</label>
+      <input type="number" id="currentAge" placeholder="e.g. 30">
 
-  const years = retirementAge - currentAge;
+      <label>Retirement Age</label>
+      <input type="number" id="retirementAge" placeholder="e.g. 50">
 
-  // Annual expense today
-  const annualExpense = monthlyExpense * 12;
+      <label>Existing Savings (₹)</label>
+      <input type="number" id="fireSavings" value="0">
+    </div>
 
-  // Inflate expense to retirement age
-  const inflatedExpense =
-    annualExpense * Math.pow(1 + inflation, years);
-
-  // UPDATED FIRE MULTIPLIERS
-  const leanFire = inflatedExpense * 25;
-  const moderateFire = inflatedExpense * 35;
-  const fatFire = inflatedExpense * 45;
-
-  // Grow existing savings to retirement
-  const futureSavings =
-    existing * Math.pow(1 + returnRate, years);
-
-  document.getElementById("leanFire").innerText =
-    Math.max(0, Math.round(leanFire - futureSavings))
-      .toLocaleString("en-IN");
-
-  document.getElementById("midFire").innerText =
-    Math.max(0, Math.round(moderateFire - futureSavings))
-      .toLocaleString("en-IN");
-
-  document.getElementById("fatFire").innerText =
-    Math.max(0, Math.round(fatFire - futureSavings))
-      .toLocaleString("en-IN");
-
-  return;
-}
-)"<button class="btn btn-primary" onclick="calculate()">
-  Calculate
-</button>
+    <button class="btn btn-primary" onclick="calculate()">Calculate</button>
+  </div>
 
   <!-- RESULTS -->
   <div class="calculator-results">
     <h2>Your Results</h2>
 
-    <p><strong>Years Left:</strong> <span id="resYears">0</span></p>
-    <p><strong>Future Cost:</strong> ₹ <span id="resFuture">0</span></p>
-    <p><strong>Existing Investment:</strong> ₹ <span id="resExisting">0</span></p>
-    <p><strong>Required Monthly SIP:</strong> ₹ <span id="resSip">0</span></p>
+    <div id="goalResults">
+      <p><strong>Years Left:</strong> <span id="resYears">–</span></p>
+      <p><strong>Future Cost:</strong> ₹ <span id="resFuture">–</span></p>
+      <p><strong>Existing Savings:</strong> ₹ <span id="resExisting">–</span></p>
+      <p><strong>Required Monthly SIP:</strong> ₹ <span id="resSip">–</span></p>
+    </div>
+
+    <div id="fireResults" style="display:none;">
+      <p><strong>Lean FIRE (25×):</strong> ₹ <span id="leanFire">–</span></p>
+      <p><strong>Moderate FIRE (35×):</strong> ₹ <span id="midFire">–</span></p>
+      <p><strong>Fat FIRE (45×):</strong> ₹ <span id="fatFire">–</span></p>
+    </div>
 
     <p class="calc-note">
-      Results are indicative only. Mutual fund investments are subject to market risks.
+      Calculations are illustrative only. Mutual fund investments are subject to market risks.
     </p>
   </div>
 
 </section>
 
-
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 <footer>
 
   <div class="footer-social">
     <a href="https://wa.me/917276692124" target="_blank" aria-label="WhatsApp">
       <i class="fa-brands fa-whatsapp"></i>
     </a>
-
     <a href="https://www.instagram.com/basic.finances/" target="_blank" aria-label="Instagram">
       <i class="fa-brands fa-instagram"></i>
     </a>
-
     <a href="https://www.facebook.com/profile.php?id=61579263773702" target="_blank" aria-label="Facebook">
       <i class="fa-brands fa-facebook-f"></i>
     </a>
@@ -179,160 +152,54 @@
 
   <div class="footer-content">
     <p><strong>Pranay R. Rewatkar</strong> — AMFI Registered Mutual Fund Distributor</p>
-    <p>
-      Mutual fund investments are subject to market risks.
-      Read all scheme related documents carefully.
-    </p>
+    <p>Mutual fund investments are subject to market risks. Read all scheme related documents carefully.</p>
     <p>© 2026 Basic Finances. All rights reserved.</p>
   </div>
 
 </footer>
+
+<!-- ================= SCRIPT ================= -->
 <script>
-/* ================= STATE ================= */
 let currentGoal = "education";
 
-/* ================= GOAL SWITCH ================= */
-function selectGoal(goal) {
+function selectGoal(goal, el) {
   currentGoal = goal;
 
-  document.querySelectorAll(".goal-tab")
-    .forEach(btn => btn.classList.remove("active"));
-  event.target.classList.add("active");
+  document.querySelectorAll(".goal-tab").forEach(b => b.classList.remove("active"));
+  el.classList.add("active");
 
-  const titles = {
-    education: "Plan Your Child’s Education",
-    wedding: "Plan Your Child’s Wedding",
-    home: "Plan Your Dream Home",
-    sip: "SIP Investment Planning",
-    custom: "Custom Goal Planning",
-    retirement: "FIRE Retirement Planning"
-  };
+  document.getElementById("goalInputs").style.display =
+    goal === "retirement" ? "none" : "block";
 
-  document.getElementById("goalTitle").innerText = titles[goal];
+  document.getElementById("fireInputs").style.display =
+    goal === "retirement" ? "block" : "none";
+
+  document.getElementById("goalResults").style.display =
+    goal === "retirement" ? "none" : "block";
+
+  document.getElementById("fireResults").style.display =
+    goal === "retirement" ? "block" : "none";
+
+  document.getElementById("goalTitle").innerText =
+    goal === "retirement"
+      ? "FIRE Retirement Planning"
+      : "Goal-Based Investment Planning";
 }
 
-/* ================= STEP-UP TOGGLE ================= */
 function toggleStepUp() {
   document.getElementById("stepUpBlock").style.display =
     document.getElementById("stepUpEnabled").checked ? "block" : "none";
 }
 
-/* ================= MAIN ENTRY ================= */
 function calculate() {
-  if (currentGoal === "retirement") {
-    calculateFIRE();
-  } else {
-    calculateGoalSIP();
-  }
+  if (currentGoal === "retirement") calculateFIRE();
+  else calculateGoal();
 }
 
-/* ================= GOAL / SIP ================= */
-function calculateGoalSIP() {
-  const years = Number(document.getElementById("years").value);
-  const cost = Number(document.getElementById("currentCost").value);
-  const existing = Number(document.getElementById("existing").value);
-  const inflation = Number(document.getElementById("inflation").value) / 100;
-  const annualReturn = Number(document.getElementById("returnRate").value) / 100;
-
-  if (!years || !cost || years <= 0) {
-    alert("Please enter valid goal details.");
-    return;
-  }
-
-  const futureCost = cost * Math.pow(1 + inflation, years);
-  const goalAmount = Math.max(0, futureCost - existing);
-
-  const stepUp = document.getElementById("stepUpEnabled").checked;
-  const stepRate = stepUp
-    ? Number(document.getElementById("stepUpRate").value) / 100
-    : 0;
-
-  const monthlyReturn = annualReturn / 12;
-  const months = years * 12;
-
-  let sip;
-
-  if (!stepUp) {
-    // Standard SIP
-    sip =
-      goalAmount * monthlyReturn /
-      (Math.pow(1 + monthlyReturn, months) - 1);
-  } else {
-    // Step-Up SIP (iterative correction)
-    let startSip = goalAmount / months;
-
-    for (let i = 0; i < 3; i++) {
-      let fv = 0;
-      let sipTemp = startSip;
-
-      for (let y = 1; y <= years; y++) {
-        for (let m = 1; m <= 12; m++) {
-          const remainingMonths = (years - y) * 12 + (12 - m + 1);
-          fv += sipTemp * Math.pow(1 + monthlyReturn, remainingMonths);
-        }
-        sipTemp *= (1 + stepRate);
-      }
-      startSip *= goalAmount / fv;
-    }
-    sip = startSip;
-  }
-
-  document.getElementById("resYears").innerText = years;
-  document.getElementById("resFuture").innerText =
-    Math.round(futureCost).toLocaleString("en-IN");
-  document.getElementById("resExisting").innerText =
-    existing.toLocaleString("en-IN");
-  document.getElementById("resSip").innerText =
-    Math.round(sip).toLocaleString("en-IN");
-}
-
-/* ================= FIRE CALCULATOR ================= */
-function calculateFIRE() {
-  const monthlyExpense = Number(document.getElementById("monthlyExpense").value);
-  const inflation = Number(document.getElementById("fireInflation").value) / 100;
-  const returnRate = Number(document.getElementById("fireReturn").value) / 100;
-  const currentAge = Number(document.getElementById("currentAge").value);
-  const retirementAge = Number(document.getElementById("retirementAge").value);
-  const savings = Number(document.getElementById("fireSavings").value);
-
-  if (
-    !monthlyExpense ||
-    !currentAge ||
-    !retirementAge ||
-    retirementAge <= currentAge
-  ) {
-    alert("Please enter valid retirement details.");
-    return;
-  }
-
-  const years = retirementAge - currentAge;
-  const annualExpense = monthlyExpense * 12;
-  const inflatedExpense =
-    annualExpense * Math.pow(1 + inflation, years);
-
-  // UPDATED MULTIPLIERS
-  const lean = inflatedExpense * 25;
-  const moderate = inflatedExpense * 35;
-  const fat = inflatedExpense * 45;
-
-  const futureSavings =
-    savings * Math.pow(1 + returnRate, years);
-
-  document.getElementById("leanFire").innerText =
-    Math.max(0, Math.round(lean - futureSavings))
-      .toLocaleString("en-IN");
-
-  document.getElementById("midFire").innerText =
-    Math.max(0, Math.round(moderate - futureSavings))
-      .toLocaleString("en-IN");
-
-  document.getElementById("fatFire").innerText =
-    Math.max(0, Math.round(fat - futureSavings))
-      .toLocaleString("en-IN");
-}
-</script>
-
-
-
-</body>
-</html>
+/* GOAL / SIP */
+function calculateGoal() {
+  const years = +yearsInput.value;
+  const cost = +currentCost.value;
+  const existing = +existingInput.value;
+  const inflation = +inflationInput.value / 100;
+  const r = +returnR
