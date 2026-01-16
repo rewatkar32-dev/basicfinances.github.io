@@ -160,8 +160,10 @@
 
 <!-- ================= SCRIPT ================= -->
 <script>
+/* ================= STATE ================= */
 let currentGoal = "education";
 
+/* ================= GOAL SWITCH ================= */
 function selectGoal(goal, el) {
   currentGoal = goal;
 
@@ -186,20 +188,111 @@ function selectGoal(goal, el) {
       : "Goal-Based Investment Planning";
 }
 
+/* ================= STEP-UP TOGGLE ================= */
 function toggleStepUp() {
   document.getElementById("stepUpBlock").style.display =
     document.getElementById("stepUpEnabled").checked ? "block" : "none";
 }
 
+/* ================= MAIN ENTRY ================= */
 function calculate() {
-  if (currentGoal === "retirement") calculateFIRE();
-  else calculateGoal();
+  if (currentGoal === "retirement") {
+    calculateFIRE();
+  } else {
+    calculateGoal();
+  }
 }
 
-/* GOAL / SIP */
+/* ================= GOAL / SIP ================= */
 function calculateGoal() {
-  const years = +yearsInput.value;
-  const cost = +currentCost.value;
-  const existing = +existingInput.value;
-  const inflation = +inflationInput.value / 100;
-  const r = +returnR
+  const years = Number(document.getElementById("years").value);
+  const cost = Number(document.getElementById("currentCost").value);
+  const existing = Number(document.getElementById("existing").value);
+  const inflation = Number(document.getElementById("inflation").value) / 100;
+  const annualReturn = Number(document.getElementById("returnRate").value) / 100;
+  const stepUp = document.getElementById("stepUpEnabled").checked;
+  const stepRate = stepUp
+    ? Number(document.getElementById("stepUpRate").value) / 100
+    : 0;
+
+  if (!years || !cost || years <= 0) {
+    alert("Please enter valid goal details.");
+    return;
+  }
+
+  const futureCost = cost * Math.pow(1 + inflation, years);
+  const goalAmount = Math.max(0, futureCost - existing);
+  const months = years * 12;
+  const r = annualReturn / 12;
+
+  let sip;
+
+  if (!stepUp) {
+    sip = goalAmount * r / (Math.pow(1 + r, months) - 1);
+  } else {
+    let startSip = goalAmount / months;
+
+    for (let i = 0; i < 3; i++) {
+      let fv = 0;
+      let sipTemp = startSip;
+
+      for (let y = 1; y <= years; y++) {
+        for (let m = 1; m <= 12; m++) {
+          const remainingMonths = (years - y) * 12 + (12 - m + 1);
+          fv += sipTemp * Math.pow(1 + r, remainingMonths);
+        }
+        sipTemp *= (1 + stepRate);
+      }
+      startSip *= goalAmount / fv;
+    }
+    sip = startSip;
+  }
+
+  document.getElementById("resYears").innerText = years;
+  document.getElementById("resFuture").innerText =
+    Math.round(futureCost).toLocaleString("en-IN");
+  document.getElementById("resExisting").innerText =
+    existing.toLocaleString("en-IN");
+  document.getElementById("resSip").innerText =
+    Math.round(sip).toLocaleString("en-IN");
+}
+
+/* ================= FIRE ================= */
+function calculateFIRE() {
+  const monthlyExpense = Number(document.getElementById("monthlyExpense").value);
+  const inflation = Number(document.getElementById("fireInflation").value) / 100;
+  const returnRate = Number(document.getElementById("fireReturn").value) / 100;
+  const currentAge = Number(document.getElementById("currentAge").value);
+  const retirementAge = Number(document.getElementById("retirementAge").value);
+  const savings = Number(document.getElementById("fireSavings").value);
+
+  if (
+    !monthlyExpense ||
+    !currentAge ||
+    !retirementAge ||
+    retirementAge <= currentAge
+  ) {
+    alert("Please enter valid retirement details.");
+    return;
+  }
+
+  const years = retirementAge - currentAge;
+  const annualExpense =
+    monthlyExpense * 12 * Math.pow(1 + inflation, years);
+
+  const futureSavings =
+    savings * Math.pow(1 + returnRate, years);
+
+  document.getElementById("leanFire").innerText =
+    Math.max(0, Math.round(annualExpense * 25 - futureSavings))
+      .toLocaleString("en-IN");
+
+  document.getElementById("midFire").innerText =
+    Math.max(0, Math.round(annualExpense * 35 - futureSavings))
+      .toLocaleString("en-IN");
+
+  document.getElementById("fatFire").innerText =
+    Math.max(0, Math.round(annualExpense * 45 - futureSavings))
+      .toLocaleString("en-IN");
+}
+</script>
