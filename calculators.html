@@ -139,8 +139,9 @@
 
   return;
 }
-)">Calculate</button>
-  </div>
+)"<button class="btn btn-primary" onclick="calculate()">
+  Calculate
+</button>
 
   <!-- RESULTS -->
   <div class="calculator-results">
@@ -187,83 +188,93 @@
 
 </footer>
 <script>
+/* ================= STATE ================= */
 let currentGoal = "education";
 
+/* ================= GOAL SWITCH ================= */
 function selectGoal(goal) {
   currentGoal = goal;
-  document.querySelectorAll(".goal-tab").forEach(btn => btn.classList.remove("active"));
+
+  document.querySelectorAll(".goal-tab")
+    .forEach(btn => btn.classList.remove("active"));
   event.target.classList.add("active");
 
   const titles = {
     education: "Plan Your Child’s Education",
     wedding: "Plan Your Child’s Wedding",
     home: "Plan Your Dream Home",
-    retirement: "Plan Your Retirement",
     sip: "SIP Investment Planning",
-    custom: "Custom Goal Planning"
+    custom: "Custom Goal Planning",
+    retirement: "FIRE Retirement Planning"
   };
 
   document.getElementById("goalTitle").innerText = titles[goal];
 }
 
+/* ================= STEP-UP TOGGLE ================= */
 function toggleStepUp() {
   document.getElementById("stepUpBlock").style.display =
     document.getElementById("stepUpEnabled").checked ? "block" : "none";
 }
 
-function calculateGoal() {
+/* ================= MAIN ENTRY ================= */
+function calculate() {
+  if (currentGoal === "retirement") {
+    calculateFIRE();
+  } else {
+    calculateGoalSIP();
+  }
+}
+
+/* ================= GOAL / SIP ================= */
+function calculateGoalSIP() {
   const years = Number(document.getElementById("years").value);
   const cost = Number(document.getElementById("currentCost").value);
   const existing = Number(document.getElementById("existing").value);
   const inflation = Number(document.getElementById("inflation").value) / 100;
   const annualReturn = Number(document.getElementById("returnRate").value) / 100;
-  const monthlyReturn = annualReturn / 12;
 
-  const stepUpEnabled = document.getElementById("stepUpEnabled").checked;
-  const stepUpRate = stepUpEnabled
+  if (!years || !cost || years <= 0) {
+    alert("Please enter valid goal details.");
+    return;
+  }
+
+  const futureCost = cost * Math.pow(1 + inflation, years);
+  const goalAmount = Math.max(0, futureCost - existing);
+
+  const stepUp = document.getElementById("stepUpEnabled").checked;
+  const stepRate = stepUp
     ? Number(document.getElementById("stepUpRate").value) / 100
     : 0;
 
-  const futureCost = cost * Math.pow(1 + inflation, years);
-  const goalAmount = futureCost - existing;
+  const monthlyReturn = annualReturn / 12;
+  const months = years * 12;
 
-  let invested = 0;
-  let futureValue = 0;
+  let sip;
 
-  if (!stepUpEnabled) {
-    // NORMAL SIP
-    const months = years * 12;
-    const sip =
+  if (!stepUp) {
+    // Standard SIP
+    sip =
       goalAmount * monthlyReturn /
       (Math.pow(1 + monthlyReturn, months) - 1);
-
-    invested = sip * months;
-    futureValue = goalAmount;
-
-    document.getElementById("resSip").innerText =
-      Math.round(sip).toLocaleString("en-IN");
   } else {
-    // STEP-UP SIP
-    let monthlySip = goalAmount / (years * 12); // starting guess
+    // Step-Up SIP (iterative correction)
+    let startSip = goalAmount / months;
 
-    for (let y = 1; y <= years; y++) {
-      for (let m = 1; m <= 12; m++) {
-        const monthsLeft = (years - y) * 12 + (12 - m + 1);
-        futureValue +=
-          monthlySip * Math.pow(1 + monthlyReturn, monthsLeft);
-        invested += monthlySip;
+    for (let i = 0; i < 3; i++) {
+      let fv = 0;
+      let sipTemp = startSip;
+
+      for (let y = 1; y <= years; y++) {
+        for (let m = 1; m <= 12; m++) {
+          const remainingMonths = (years - y) * 12 + (12 - m + 1);
+          fv += sipTemp * Math.pow(1 + monthlyReturn, remainingMonths);
+        }
+        sipTemp *= (1 + stepRate);
       }
-      monthlySip *= (1 + stepUpRate);
+      startSip *= goalAmount / fv;
     }
-
-    // Adjust starting SIP
-    const adjustmentFactor = goalAmount / futureValue;
-    const startingSip =
-      (goalAmount / futureValue) *
-      (goalAmount / (years * 12));
-
-    document.getElementById("resSip").innerText =
-      Math.round(startingSip).toLocaleString("en-IN");
+    sip = startSip;
   }
 
   document.getElementById("resYears").innerText = years;
@@ -271,8 +282,56 @@ function calculateGoal() {
     Math.round(futureCost).toLocaleString("en-IN");
   document.getElementById("resExisting").innerText =
     existing.toLocaleString("en-IN");
+  document.getElementById("resSip").innerText =
+    Math.round(sip).toLocaleString("en-IN");
+}
+
+/* ================= FIRE CALCULATOR ================= */
+function calculateFIRE() {
+  const monthlyExpense = Number(document.getElementById("monthlyExpense").value);
+  const inflation = Number(document.getElementById("fireInflation").value) / 100;
+  const returnRate = Number(document.getElementById("fireReturn").value) / 100;
+  const currentAge = Number(document.getElementById("currentAge").value);
+  const retirementAge = Number(document.getElementById("retirementAge").value);
+  const savings = Number(document.getElementById("fireSavings").value);
+
+  if (
+    !monthlyExpense ||
+    !currentAge ||
+    !retirementAge ||
+    retirementAge <= currentAge
+  ) {
+    alert("Please enter valid retirement details.");
+    return;
+  }
+
+  const years = retirementAge - currentAge;
+  const annualExpense = monthlyExpense * 12;
+  const inflatedExpense =
+    annualExpense * Math.pow(1 + inflation, years);
+
+  // UPDATED MULTIPLIERS
+  const lean = inflatedExpense * 25;
+  const moderate = inflatedExpense * 35;
+  const fat = inflatedExpense * 45;
+
+  const futureSavings =
+    savings * Math.pow(1 + returnRate, years);
+
+  document.getElementById("leanFire").innerText =
+    Math.max(0, Math.round(lean - futureSavings))
+      .toLocaleString("en-IN");
+
+  document.getElementById("midFire").innerText =
+    Math.max(0, Math.round(moderate - futureSavings))
+      .toLocaleString("en-IN");
+
+  document.getElementById("fatFire").innerText =
+    Math.max(0, Math.round(fat - futureSavings))
+      .toLocaleString("en-IN");
 }
 </script>
+
 
 
 </body>
