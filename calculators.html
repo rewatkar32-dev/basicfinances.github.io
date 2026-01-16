@@ -90,7 +90,56 @@
 </div>
 
 
-    <button class="btn btn-primary" onclick="calculateGoal()">Calculate</button>
+    <button class="btn btn-primary" onclick="calculateGoal(if (currentGoal === "retirement") {
+
+  const monthlyExpense = Number(document.getElementById("monthlyExpense").value);
+  const inflation = Number(document.getElementById("fireInflation").value) / 100;
+  const returnRate = Number(document.getElementById("fireReturn").value) / 100;
+  const currentAge = Number(document.getElementById("currentAge").value);
+  const retirementAge = Number(document.getElementById("retirementAge").value);
+  const existing = Number(document.getElementById("fireSavings").value);
+
+  if (
+    !monthlyExpense || !currentAge || !retirementAge ||
+    retirementAge <= currentAge
+  ) {
+    alert("Please enter valid retirement details.");
+    return;
+  }
+
+  const years = retirementAge - currentAge;
+
+  // Annual expense today
+  const annualExpense = monthlyExpense * 12;
+
+  // Inflate expense to retirement age
+  const inflatedExpense =
+    annualExpense * Math.pow(1 + inflation, years);
+
+  // UPDATED FIRE MULTIPLIERS
+  const leanFire = inflatedExpense * 25;
+  const moderateFire = inflatedExpense * 35;
+  const fatFire = inflatedExpense * 45;
+
+  // Grow existing savings to retirement
+  const futureSavings =
+    existing * Math.pow(1 + returnRate, years);
+
+  document.getElementById("leanFire").innerText =
+    Math.max(0, Math.round(leanFire - futureSavings))
+      .toLocaleString("en-IN");
+
+  document.getElementById("midFire").innerText =
+    Math.max(0, Math.round(moderateFire - futureSavings))
+      .toLocaleString("en-IN");
+
+  document.getElementById("fatFire").innerText =
+    Math.max(0, Math.round(fatFire - futureSavings))
+      .toLocaleString("en-IN");
+
+  return;
+}
+)">Calculate</button>
   </div>
 
   <!-- RESULTS -->
